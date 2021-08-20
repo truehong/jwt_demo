@@ -14,13 +14,13 @@ spring:
       enabled: true #console 이용 하겠다
       path : /test_db  #console 경로
   datasource:
-    url: jdbc:h2:tcp://localhost/~/test2
+    url: jdbc:h2:tcp://localhost/~/test
     username: sa
     password:
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
-      ddl-auto: create #create update none
+      ddl-auto: update #create update none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true

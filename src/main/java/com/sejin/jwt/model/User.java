@@ -12,23 +12,23 @@ import javax.persistence.Id;
 
 
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
-@Getter
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String username;
     private String password;
-    private String roles; // USER,ADMIN
+    private String role; // USER,ADMIN
 
     public List<String> getRoleList() {
-        if (this.roles.length()>0){
-            return Arrays.asList(this.roles.split(","));
+        if (this.role.length()>0){
+            return Arrays.asList(this.role.split(","));
         }
         return new ArrayList<>();
     }
@@ -38,6 +38,6 @@ public class User {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.roles = roles;
+        this.role = roles;
     }
 }
